@@ -1,7 +1,7 @@
 import { and, asc, eq } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { categories } from "../db/schema";
-import { NotFoundError } from "./errors";
+import { getDb } from "../db/client.js";
+import { categories } from "../db/schema.js";
+import { NotFoundError } from "./errors.js";
 
 export interface CategoryInput {
   name: string;

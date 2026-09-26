@@ -1,11 +1,11 @@
 import { z } from "zod";
-import { requireStoreAccess } from "../../server/auth/permissions";
+import { requireStoreAccess } from "../../server/auth/permissions.js";
 import {
   getStoreById,
   listStoreMembers,
   updateStoreSettings,
-} from "../../server/services/stores";
-import { handler } from "../_lib/handler";
+} from "../../server/services/stores.js";
+import { handler } from "../_lib/handler.js";
 
 const settingsInput = z.object({
   name: z.string().trim().min(2).max(80).optional(),

@@ -3,15 +3,15 @@ import { ZodError } from "zod";
 import {
   getRequestContext,
   UnauthorizedError,
-} from "../../server/auth/middleware";
+} from "../../server/auth/middleware.js";
 import {
   AuthorizationError,
   requireStoreAccess,
   type Role,
-} from "../../server/auth/permissions";
-import type { SessionUser } from "../../server/auth/session";
-import { getDefaultStoreForUser } from "../../server/services/stores";
-import { AppError } from "../../server/services/errors";
+} from "../../server/auth/permissions.js";
+import type { SessionUser } from "../../server/auth/session.js";
+import { getDefaultStoreForUser } from "../../server/services/stores.js";
+import { AppError } from "../../server/services/errors.js";
 
 export interface Ctx {
   req: VercelRequest;

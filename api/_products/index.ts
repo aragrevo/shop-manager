@@ -1,11 +1,11 @@
-import { paginationSchema } from "../../src/schemas/common";
-import { productInputSchema } from "../../src/schemas/product";
+import { paginationSchema } from "../../src/schemas/common.js";
+import { productInputSchema } from "../../src/schemas/product.js";
 import {
   createProduct,
   getInventoryStats,
   listProducts,
-} from "../../server/services/products";
-import { handler } from "../_lib/handler";
+} from "../../server/services/products.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

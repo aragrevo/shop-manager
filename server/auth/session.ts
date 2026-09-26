@@ -1,7 +1,7 @@
 import { createHash, randomBytes } from "node:crypto";
 import { eq } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { sessions, users } from "../db/schema";
+import { getDb } from "../db/client.js";
+import { sessions, users } from "../db/schema.js";
 
 const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 30; // 30 days
 const REFRESH_THRESHOLD_MS = 1000 * 60 * 60 * 24 * 15; // refresh when < 15 days left

@@ -1,8 +1,8 @@
 import { and, asc, count, desc, eq, gte, lte, sql } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { categories, expenses } from "../db/schema";
-import type { ExpenseInput } from "../../src/schemas/expense";
-import { NotFoundError } from "./errors";
+import { getDb } from "../db/client.js";
+import { categories, expenses } from "../db/schema.js";
+import type { ExpenseInput } from "../../src/schemas/expense.js";
+import { NotFoundError } from "./errors.js";
 
 export interface ExpenseFilters {
   status?: "pending" | "paid" | "cancelled";

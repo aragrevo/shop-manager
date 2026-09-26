@@ -1,7 +1,7 @@
-import { paginationSchema } from "../../src/schemas/common";
-import { saleFilterSchema, saleInputSchema } from "../../src/schemas/sale";
-import { createSale, listSales } from "../../server/services/sales";
-import { handler } from "../_lib/handler";
+import { paginationSchema } from "../../src/schemas/common.js";
+import { saleFilterSchema, saleInputSchema } from "../../src/schemas/sale.js";
+import { createSale, listSales } from "../../server/services/sales.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

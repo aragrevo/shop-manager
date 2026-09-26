@@ -1,11 +1,11 @@
-import { customerInputSchema } from "../../src/schemas/customer";
+import { customerInputSchema } from "../../src/schemas/customer.js";
 import {
   deleteCustomer,
   getCustomer,
   getCustomerHistory,
   updateCustomer,
-} from "../../server/services/customers";
-import { handler } from "../_lib/handler";
+} from "../../server/services/customers.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

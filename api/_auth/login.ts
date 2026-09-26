@@ -1,11 +1,11 @@
-import { loginSchema } from "../../src/schemas/auth";
+import { loginSchema } from "../../src/schemas/auth.js";
 import {
   createBlankSessionCookie,
   createSessionCookie,
-} from "../../server/auth/middleware";
-import { createSession } from "../../server/auth/session";
-import { verifyUserCredentials } from "../../server/auth/user";
-import { handler } from "../_lib/handler";
+} from "../../server/auth/middleware.js";
+import { createSession } from "../../server/auth/session.js";
+import { verifyUserCredentials } from "../../server/auth/user.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

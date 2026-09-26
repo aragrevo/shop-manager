@@ -1,14 +1,14 @@
 import { and, count, desc, eq, gte, inArray, lte, sql } from "drizzle-orm";
-import { getDb } from "../db/client";
+import { getDb } from "../db/client.js";
 import {
   customers,
   inventoryMovements,
   products,
   saleItems,
   sales,
-} from "../db/schema";
-import type { SaleInput } from "../../src/schemas/sale";
-import { ConflictError, NotFoundError } from "./errors";
+} from "../db/schema.js";
+import type { SaleInput } from "../../src/schemas/sale.js";
+import { ConflictError, NotFoundError } from "./errors.js";
 
 export interface SaleListFilters {
   status?: "completed" | "cancelled";

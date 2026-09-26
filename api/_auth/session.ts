@@ -1,5 +1,5 @@
-import { getRequestContext } from "../../server/auth/middleware";
-import { handler, toRequest } from "../_lib/handler";
+import { getRequestContext } from "../../server/auth/middleware.js";
+import { handler, toRequest } from "../_lib/handler.js";
 
 export default handler(
   {

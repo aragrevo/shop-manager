@@ -1,9 +1,9 @@
-import { signupSchema } from "../../src/schemas/auth";
-import { createSessionCookie } from "../../server/auth/middleware";
-import { createSession } from "../../server/auth/session";
-import { createUser } from "../../server/auth/user";
-import { createStore } from "../../server/services/stores";
-import { handler } from "../_lib/handler";
+import { signupSchema } from "../../src/schemas/auth.js";
+import { createSessionCookie } from "../../server/auth/middleware.js";
+import { createSession } from "../../server/auth/session.js";
+import { createUser } from "../../server/auth/user.js";
+import { createStore } from "../../server/services/stores.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

@@ -1,11 +1,11 @@
-import { expenseInputSchema } from "../../src/schemas/expense";
+import { expenseInputSchema } from "../../src/schemas/expense.js";
 import {
   cancelExpense,
   deleteExpense,
   getExpense,
   updateExpense,
-} from "../../server/services/expenses";
-import { handler } from "../_lib/handler";
+} from "../../server/services/expenses.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

@@ -1,7 +1,7 @@
 import { and, desc, eq, gte, lte, ne, sql } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { categories, expenses, products, saleItems, sales } from "../db/schema";
-import type { Period } from "../../src/schemas/common";
+import { getDb } from "../db/client.js";
+import { categories, expenses, products, saleItems, sales } from "../db/schema.js";
+import type { Period } from "../../src/schemas/common.js";
 
 export interface DateRange {
   from: Date;

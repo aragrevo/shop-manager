@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { dateInput, idSchema, moneyInput, optionalMoneyInput } from "./common";
+import { dateInput, idSchema, moneyInput, optionalMoneyInput } from "./common.js";
 
 export const expenseStatusSchema = z.enum(["pending", "paid", "cancelled"]);
 export type ExpenseStatus = z.infer<typeof expenseStatusSchema>;

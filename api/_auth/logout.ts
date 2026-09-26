@@ -1,9 +1,9 @@
 import {
   createBlankSessionCookie,
   getSessionToken,
-} from "../../server/auth/middleware";
-import { invalidateSession } from "../../server/auth/session";
-import { handler, toRequest } from "../_lib/handler";
+} from "../../server/auth/middleware.js";
+import { invalidateSession } from "../../server/auth/session.js";
+import { handler, toRequest } from "../_lib/handler.js";
 
 export default handler(
   {

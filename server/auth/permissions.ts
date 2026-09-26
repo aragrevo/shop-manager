@@ -1,6 +1,6 @@
 import { and, eq } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { storeMembers } from "../db/schema";
+import { getDb } from "../db/client.js";
+import { storeMembers } from "../db/schema.js";
 
 export type Role = "owner" | "admin" | "employee";
 

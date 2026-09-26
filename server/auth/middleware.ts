@@ -1,4 +1,4 @@
-import { validateSessionToken, type SessionUser } from "./session";
+import { validateSessionToken, type SessionUser } from "./session.js";
 
 export const SESSION_COOKIE_NAME = "session";
 

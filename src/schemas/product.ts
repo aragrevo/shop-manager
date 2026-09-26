@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { idSchema, moneyInput, stockInput } from "./common";
+import { idSchema, moneyInput, stockInput } from "./common.js";
 
 const skuSchema = z
   .string()

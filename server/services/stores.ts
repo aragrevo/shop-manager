@@ -1,7 +1,7 @@
 import { and, eq } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { storeMembers, stores, users } from "../db/schema";
-import { NotFoundError } from "./errors";
+import { getDb } from "../db/client.js";
+import { storeMembers, stores, users } from "../db/schema.js";
+import { NotFoundError } from "./errors.js";
 
 export interface StoreSummary {
   id: string;

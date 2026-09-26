@@ -1,19 +1,19 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import loginHandler from "../_auth/login";
-import logoutHandler from "../_auth/logout";
-import sessionHandler from "../_auth/session";
-import signupHandler from "../_auth/signup";
-import categoriesIndex from "../_categories/index";
-import customersId from "../_customers/[id]";
-import customersIndex from "../_customers/index";
-import dashboardHandler from "../_dashboard";
-import expensesId from "../_expenses/[id]";
-import expensesIndex from "../_expenses/index";
-import reportsIndex from "../_reports/index";
-import salesId from "../_sales/[id]";
-import salesIndex from "../_sales/index";
-import storesId from "../_stores/[id]";
-import storesIndex from "../_stores/index";
+import loginHandler from "../_auth/login.js";
+import logoutHandler from "../_auth/logout.js";
+import sessionHandler from "../_auth/session.js";
+import signupHandler from "../_auth/signup.js";
+import categoriesIndex from "../_categories/index.js";
+import customersId from "../_customers/[id].js";
+import customersIndex from "../_customers/index.js";
+import dashboardHandler from "../_dashboard.js";
+import expensesId from "../_expenses/[id].js";
+import expensesIndex from "../_expenses/index.js";
+import reportsIndex from "../_reports/index.js";
+import salesId from "../_sales/[id].js";
+import salesIndex from "../_sales/index.js";
+import storesId from "../_stores/[id].js";
+import storesIndex from "../_stores/index.js";
 
 type Handler = (req: VercelRequest, res: VercelResponse) => Promise<void> | void;
 

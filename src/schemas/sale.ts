@@ -4,7 +4,7 @@ import {
   idSchema,
   optionalMoneyInput,
   quantityInput,
-} from "./common";
+} from "./common.js";
 
 /**
  * Prices/costs are resolved server-side from the product record; the client

@@ -1,8 +1,8 @@
 import { and, asc, count, desc, eq, sql } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { customers, sales } from "../db/schema";
-import type { CustomerInput } from "../../src/schemas/customer";
-import { NotFoundError } from "./errors";
+import { getDb } from "../db/client.js";
+import { customers, sales } from "../db/schema.js";
+import type { CustomerInput } from "../../src/schemas/customer.js";
+import { NotFoundError } from "./errors.js";
 
 export interface ListOptions {
   page: number;

@@ -3,8 +3,8 @@ import {
   createStore,
   getDefaultStoreForUser,
   listStoresForUser,
-} from "../../server/services/stores";
-import { handler } from "../_lib/handler";
+} from "../../server/services/stores.js";
+import { handler } from "../_lib/handler.js";
 
 const storeInput = z.object({
   name: z.string().trim().min(2, "El nombre es obligatorio").max(80),

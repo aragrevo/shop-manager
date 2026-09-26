@@ -1,5 +1,5 @@
-import { getDb } from "./client";
-import { hashPassword } from "../auth/password";
+import { getDb } from "./client.js";
+import { hashPassword } from "../auth/password.js";
 import {
   categories,
   customers,
@@ -12,7 +12,7 @@ import {
   storeMembers,
   stores,
   users,
-} from "./schema";
+} from "./schema.js";
 
 try {
   process.loadEnvFile();

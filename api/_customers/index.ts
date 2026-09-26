@@ -1,7 +1,7 @@
-import { paginationSchema } from "../../src/schemas/common";
-import { customerInputSchema } from "../../src/schemas/customer";
-import { createCustomer, listCustomers } from "../../server/services/customers";
-import { handler } from "../_lib/handler";
+import { paginationSchema } from "../../src/schemas/common.js";
+import { customerInputSchema } from "../../src/schemas/customer.js";
+import { createCustomer, listCustomers } from "../../server/services/customers.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

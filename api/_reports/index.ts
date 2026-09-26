@@ -9,10 +9,10 @@ import {
   expensesByBucket,
   salesTotal,
   toCsv,
-} from "../../server/services/reports";
-import { getProfitReport } from "../../server/services/dashboard";
-import type { Period } from "../../src/schemas/common";
-import { handler } from "../_lib/handler";
+} from "../../server/services/reports.js";
+import { getProfitReport } from "../../server/services/dashboard.js";
+import type { Period } from "../../src/schemas/common.js";
+import { handler } from "../_lib/handler.js";
 
 function resolveRange(query: Record<string, unknown>) {
   if (typeof query.from === "string" && typeof query.to === "string") {

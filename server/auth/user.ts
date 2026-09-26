@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { users } from "../db/schema";
-import { hashPassword, verifyPassword } from "./password";
-import type { SessionUser } from "./session";
+import { getDb } from "../db/client.js";
+import { users } from "../db/schema.js";
+import { hashPassword, verifyPassword } from "./password.js";
+import type { SessionUser } from "./session.js";
 
 export interface CreateUserInput {
   email: string;

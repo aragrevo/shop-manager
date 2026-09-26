@@ -1,7 +1,7 @@
-import { paginationSchema } from "../../src/schemas/common";
-import { expenseFilterSchema, expenseInputSchema } from "../../src/schemas/expense";
-import { createExpense, listExpenses } from "../../server/services/expenses";
-import { handler } from "../_lib/handler";
+import { paginationSchema } from "../../src/schemas/common.js";
+import { expenseFilterSchema, expenseInputSchema } from "../../src/schemas/expense.js";
+import { createExpense, listExpenses } from "../../server/services/expenses.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

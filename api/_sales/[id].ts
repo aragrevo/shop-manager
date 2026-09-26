@@ -1,5 +1,5 @@
-import { cancelSale, getSale } from "../../server/services/sales";
-import { handler } from "../_lib/handler";
+import { cancelSale, getSale } from "../../server/services/sales.js";
+import { handler } from "../_lib/handler.js";
 
 export default handler(
   {

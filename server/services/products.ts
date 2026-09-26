@@ -1,8 +1,8 @@
 import { and, asc, count, desc, eq, sql } from "drizzle-orm";
-import { getDb } from "../db/client";
-import { categories, products } from "../db/schema";
-import type { ProductInput } from "../../src/schemas/product";
-import { NotFoundError } from "./errors";
+import { getDb } from "../db/client.js";
+import { categories, products } from "../db/schema.js";
+import type { ProductInput } from "../../src/schemas/product.js";
+import { NotFoundError } from "./errors.js";
 
 export interface ProductFilters {
   categoryId?: string;

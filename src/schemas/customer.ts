@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { emailSchema } from "./auth";
+import { emailSchema } from "./auth.js";
 
 export const customerInputSchema = z.object({
   name: z.string().trim().min(1, "El nombre es obligatorio").max(120),

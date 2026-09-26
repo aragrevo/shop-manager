@@ -1,6 +1,6 @@
-import { periodSchema } from "../src/schemas/common";
-import { getDashboard } from "../server/services/dashboard";
-import { handler } from "./_lib/handler";
+import { periodSchema } from "../src/schemas/common.js";
+import { getDashboard } from "../server/services/dashboard.js";
+import { handler } from "./_lib/handler.js";
 
 export default handler(
   {

@@ -2,8 +2,8 @@ import { z } from "zod";
 import {
   createCategory,
   listCategories,
-} from "../../server/services/categories";
-import { handler } from "../_lib/handler";
+} from "../../server/services/categories.js";
+import { handler } from "../_lib/handler.js";
 
 const categoryInput = z.object({
   name: z.string().trim().min(1, "El nombre es obligatorio").max(80),
