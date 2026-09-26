@@ -2,6 +2,7 @@ import { z } from "zod";
 import {
   dateInput,
   idSchema,
+  moneyInput,
   optionalMoneyInput,
   quantityInput,
 } from "./common.js";
@@ -25,6 +26,20 @@ export const saleInputSchema = z.object({
 });
 
 export type SaleInput = z.infer<typeof saleInputSchema>;
+
+/**
+ * Venta manual: solo el importe vendido del día, sin productos ni stock.
+ * Pensada para llevar el control de "cuánto se vende" sin inventario.
+ */
+export const manualSaleInputSchema = z.object({
+  total: moneyInput,
+  taxAmount: optionalMoneyInput,
+  paymentMethod: z.string().trim().max(60).optional(),
+  saleDate: dateInput.optional(),
+  notes: z.string().trim().max(500).optional(),
+});
+
+export type ManualSaleInput = z.infer<typeof manualSaleInputSchema>;
 
 export const saleFilterSchema = z.object({
   status: z.enum(["completed", "cancelled"]).optional(),

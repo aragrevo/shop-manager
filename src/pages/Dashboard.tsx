@@ -243,6 +243,7 @@ export function DashboardPage() {
           )}
         </Card>
 
+        {/* Productos más vendidos: deshabilitado por ahora (sin productos).
         <Card>
           <CardHeader title="Productos más vendidos" />
           {data.topProducts.length === 0 ? (
@@ -268,6 +269,7 @@ export function DashboardPage() {
             </Table>
           )}
         </Card>
+        */}
       </div>
     </div>
   );

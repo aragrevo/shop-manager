@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { eq } from "drizzle-orm";
 import { getDb } from "../server/db/client";
 import { inventoryMovements, products } from "../server/db/schema";
-import { cancelSale, createSale, getSale } from "../server/services/sales";
+import { cancelSale, createManualSale, createSale, getSale } from "../server/services/sales";
 import { ConflictError, NotFoundError } from "../server/services/errors";
 import { makeProduct, makeUserWithStore, migrateTestDb } from "./helpers";
 
@@ -100,6 +100,28 @@ describe("createSale", () => {
     await expect(
       createSale(store.id, { items: [{ productId: product.id, quantity: 1 }], taxAmount: 0 }),
     ).rejects.toBeInstanceOf(ConflictError);
+  });
+});
+
+describe("createManualSale", () => {
+  it("records a sale with a total and no products or inventory movements", async () => {
+    const { store } = await makeUserWithStore("Manual Sale");
+    const result = await createManualSale(store.id, {
+      total: 4250,
+      taxAmount: 0,
+      paymentMethod: "Efectivo",
+    });
+
+    expect(result.total).toBe(4250);
+
+    const detail = await getSale(store.id, result.saleId);
+    expect(detail.items).toHaveLength(0);
+
+    const movements = await getDb()
+      .select()
+      .from(inventoryMovements)
+      .where(eq(inventoryMovements.referenceId, result.saleId));
+    expect(movements).toHaveLength(0);
   });
 });
 

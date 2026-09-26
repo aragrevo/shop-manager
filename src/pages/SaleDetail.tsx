@@ -105,27 +105,35 @@ export function SaleDetailPage() {
       </div>
 
       <Card>
-        <CardHeader title="Productos" />
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableHeaderCell>Producto</TableHeaderCell>
-              <TableHeaderCell>Cantidad</TableHeaderCell>
-              <TableHeaderCell>Precio</TableHeaderCell>
-              <TableHeaderCell>Subtotal</TableHeaderCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {sale.items.map((item) => (
-              <TableRow key={item.id}>
-                <TableCell>{item.productName ?? "Producto eliminado"}</TableCell>
-                <TableCell>{item.quantity}</TableCell>
-                <TableCell>{formatCurrency(item.unitPrice, currency)}</TableCell>
-                <TableCell>{formatCurrency(item.subtotal, currency)}</TableCell>
+        <CardHeader title={sale.items.length === 0 ? "Detalle" : "Productos"} />
+        {sale.items.length === 0 ? (
+          <CardContent>
+            <p className="text-sm text-neutral-500">
+              Venta registrada como importe total (sin productos).
+            </p>
+          </CardContent>
+        ) : (
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell>Producto</TableHeaderCell>
+                <TableHeaderCell>Cantidad</TableHeaderCell>
+                <TableHeaderCell>Precio</TableHeaderCell>
+                <TableHeaderCell>Subtotal</TableHeaderCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHead>
+            <TableBody>
+              {sale.items.map((item) => (
+                <TableRow key={item.id}>
+                  <TableCell>{item.productName ?? "Producto eliminado"}</TableCell>
+                  <TableCell>{item.quantity}</TableCell>
+                  <TableCell>{formatCurrency(item.unitPrice, currency)}</TableCell>
+                  <TableCell>{formatCurrency(item.subtotal, currency)}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        )}
         <CardContent className="flex flex-col items-end gap-1">
           <div className="flex w-full max-w-xs justify-between text-sm">
             <span className="text-neutral-500">Subtotal</span>

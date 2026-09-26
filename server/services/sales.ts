@@ -7,7 +7,7 @@ import {
   saleItems,
   sales,
 } from "../db/schema.js";
-import type { SaleInput } from "../../src/schemas/sale.js";
+import type { ManualSaleInput, SaleInput } from "../../src/schemas/sale.js";
 import { ConflictError, NotFoundError } from "./errors.js";
 
 export interface SaleListFilters {
@@ -190,6 +190,27 @@ export async function createSale(
 
     return { saleId: sale.id, total };
   });
+}
+
+export async function createManualSale(
+  storeId: string,
+  input: ManualSaleInput,
+): Promise<CreateSaleResult> {
+  const [sale] = await getDb()
+    .insert(sales)
+    .values({
+      storeId,
+      customerId: null,
+      total: input.total,
+      taxAmount: input.taxAmount ?? 0,
+      paymentMethod: input.paymentMethod ?? null,
+      status: "completed",
+      saleDate: input.saleDate ?? new Date(),
+      notes: input.notes ?? null,
+    })
+    .returning();
+  if (!sale) throw new ConflictError("No se pudo crear la venta");
+  return { saleId: sale.id, total: sale.total };
 }
 
 export async function cancelSale(
