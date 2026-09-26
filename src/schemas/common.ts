@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { parseMoney } from "@/lib/money";
+import { parseMoney } from "../lib/money";
 
 export const idSchema = z.string().uuid("Identificador inválido");
 

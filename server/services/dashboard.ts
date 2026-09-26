@@ -1,7 +1,7 @@
 import { and, desc, eq, gte, lte, ne, sql } from "drizzle-orm";
 import { getDb } from "../db/client";
 import { customers, expenses, products, saleItems, sales } from "../db/schema";
-import type { Period } from "@/schemas/common";
+import type { Period } from "../../src/schemas/common";
 import {
   costOfGoods,
   expensesByBucket,

@@ -1,7 +1,7 @@
 import { and, asc, count, desc, eq, sql } from "drizzle-orm";
 import { getDb } from "../db/client";
 import { categories, products } from "../db/schema";
-import type { ProductInput } from "@/schemas/product";
+import type { ProductInput } from "../../src/schemas/product";
 import { NotFoundError } from "./errors";
 
 export interface ProductFilters {

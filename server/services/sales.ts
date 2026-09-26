@@ -7,7 +7,7 @@ import {
   saleItems,
   sales,
 } from "../db/schema";
-import type { SaleInput } from "@/schemas/sale";
+import type { SaleInput } from "../../src/schemas/sale";
 import { ConflictError, NotFoundError } from "./errors";
 
 export interface SaleListFilters {

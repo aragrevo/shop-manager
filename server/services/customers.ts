@@ -1,7 +1,7 @@
 import { and, asc, count, desc, eq, sql } from "drizzle-orm";
 import { getDb } from "../db/client";
 import { customers, sales } from "../db/schema";
-import type { CustomerInput } from "@/schemas/customer";
+import type { CustomerInput } from "../../src/schemas/customer";
 import { NotFoundError } from "./errors";
 
 export interface ListOptions {
