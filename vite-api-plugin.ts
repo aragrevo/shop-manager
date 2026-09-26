@@ -28,8 +28,8 @@ async function runApi(
   req: IncomingMessage,
   res: ServerResponse,
 ): Promise<boolean> {
-  // Same single catch-all function Vercel deploys, for dev/prod parity.
-  const file = join(server.config.root, "api", "[...path].ts");
+  // Same shared router the Vercel functions delegate to, for dev/prod parity.
+  const file = join(server.config.root, "api", "_lib", "router.ts");
   if (!existsSync(file)) return false;
 
   const url = new URL(req.url ?? "/", "http://localhost");
@@ -43,7 +43,6 @@ async function runApi(
   url.searchParams.forEach((value, key) => {
     query[key] = value;
   });
-  query.path = segments;
 
   const body = await readBody(req);
 
@@ -76,11 +75,15 @@ async function runApi(
   };
 
   const mod = (await server.ssrLoadModule(file)) as {
-    default?: (req: VercelRequest, res: VercelResponse) => Promise<void> | void;
+    route?: (segments: string[], req: VercelRequest, res: VercelResponse) => Promise<void> | void;
   };
-  if (!mod.default) return false;
+  if (!mod.route) return false;
 
-  await mod.default(vreq as unknown as VercelRequest, vres as unknown as VercelResponse);
+  await mod.route(
+    segments,
+    vreq as unknown as VercelRequest,
+    vres as unknown as VercelResponse,
+  );
   return true;
 }
 
