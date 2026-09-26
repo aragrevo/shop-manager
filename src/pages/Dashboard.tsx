@@ -100,7 +100,7 @@ export function DashboardPage() {
         <div>
           <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Panel</h1>
           <p className="text-sm text-neutral-500">
-            Resumen de {activeStore?.name ?? "tu tienda"}
+            {activeStore?.name ?? "tu tienda"}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -210,7 +210,7 @@ export function DashboardPage() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      {/* <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Card>
           <CardHeader title="Ventas recientes" />
           {data.recentSales.length === 0 ? (
@@ -266,7 +266,7 @@ export function DashboardPage() {
             </Table>
           )}
         </Card>
-      </div>
+      </div> */}
     </div>
   );
 }
