@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import {
   BarChart3,
-  Boxes,
+  // Boxes, // Productos deshabilitado
   LayoutDashboard,
   LogOut,
   Menu,
@@ -10,7 +10,7 @@ import {
   Settings,
   ShoppingCart,
   Store,
-  Users,
+  // Users, // Clientes deshabilitado
   X,
 } from "lucide-react";
 import { cn } from "@/lib/cn";
@@ -20,8 +20,8 @@ const navigation = [
   { to: "/dashboard", label: "Inicio", icon: LayoutDashboard },
   { to: "/sales", label: "Ventas", icon: ShoppingCart },
   { to: "/expenses", label: "Gastos", icon: Receipt },
-  { to: "/products", label: "Productos", icon: Boxes },
-  { to: "/customers", label: "Clientes", icon: Users },
+  // { to: "/products", label: "Productos", icon: Boxes }, // deshabilitado por ahora
+  // { to: "/customers", label: "Clientes", icon: Users }, // deshabilitado por ahora
   { to: "/reports", label: "Informes", icon: BarChart3 },
   { to: "/settings", label: "Ajustes", icon: Settings },
 ];

@@ -4,8 +4,9 @@ import logoutHandler from "../_auth/logout.js";
 import sessionHandler from "../_auth/session.js";
 import signupHandler from "../_auth/signup.js";
 import categoriesIndex from "../_categories/index.js";
-import customersId from "../_customers/[id].js";
-import customersIndex from "../_customers/index.js";
+// Clientes deshabilitado por ahora (no se usa).
+// import customersId from "../_customers/[id].js";
+// import customersIndex from "../_customers/index.js";
 import dashboardHandler from "../_dashboard.js";
 import expensesId from "../_expenses/[id].js";
 import expensesIndex from "../_expenses/index.js";
@@ -77,14 +78,15 @@ export async function route(
         handler = expensesIndex;
       }
       break;
-    case "customers":
-      if (second) {
-        req.query.id = second;
-        handler = customersId;
-      } else {
-        handler = customersIndex;
-      }
-      break;
+    // Clientes deshabilitado por ahora (no se usa).
+    // case "customers":
+    //   if (second) {
+    //     req.query.id = second;
+    //     handler = customersId;
+    //   } else {
+    //     handler = customersIndex;
+    //   }
+    //   break;
     // Productos deshabilitado por ahora (no se usa).
     // case "products":
     //   if (second) {

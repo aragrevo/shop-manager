@@ -114,11 +114,13 @@ export function DashboardPage() {
               <Receipt className="h-4 w-4" aria-hidden="true" /> Añadir gasto
             </Button>
           </Link>
+          {/* Producto: deshabilitado por ahora.
           <Link to="/products/new">
             <Button variant="outline">
               <Plus className="h-4 w-4" aria-hidden="true" /> Nuevo producto
             </Button>
           </Link>
+          */}
         </div>
       </div>
 

@@ -29,18 +29,20 @@ const ExpensesPage = lazy(() =>
 const ExpenseNewPage = lazy(() =>
   import("@/pages/ExpenseNew").then((m) => ({ default: m.ExpenseNewPage })),
 );
-const ProductsPage = lazy(() =>
-  import("@/pages/Products").then((m) => ({ default: m.ProductsPage })),
-);
-const ProductNewPage = lazy(() =>
-  import("@/pages/ProductNew").then((m) => ({ default: m.ProductNewPage })),
-);
-const CustomersPage = lazy(() =>
-  import("@/pages/Customers").then((m) => ({ default: m.CustomersPage })),
-);
-const CustomerDetailPage = lazy(() =>
-  import("@/pages/CustomerDetail").then((m) => ({ default: m.CustomerDetailPage })),
-);
+// Productos deshabilitado por ahora.
+// const ProductsPage = lazy(() =>
+//   import("@/pages/Products").then((m) => ({ default: m.ProductsPage })),
+// );
+// const ProductNewPage = lazy(() =>
+//   import("@/pages/ProductNew").then((m) => ({ default: m.ProductNewPage })),
+// );
+// Clientes deshabilitado por ahora.
+// const CustomersPage = lazy(() =>
+//   import("@/pages/Customers").then((m) => ({ default: m.CustomersPage })),
+// );
+// const CustomerDetailPage = lazy(() =>
+//   import("@/pages/CustomerDetail").then((m) => ({ default: m.CustomerDetailPage })),
+// );
 const ReportsPage = lazy(() =>
   import("@/pages/Reports").then((m) => ({ default: m.ReportsPage })),
 );
@@ -97,10 +99,12 @@ export function AppRouter() {
           <Route path="/sales/:id" element={<SaleDetailPage />} />
           <Route path="/expenses" element={<ExpensesPage />} />
           <Route path="/expenses/new" element={<ExpenseNewPage />} />
+          {/* Productos deshabilitado por ahora.
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/new" element={<ProductNewPage />} />
+          Clientes deshabilitado por ahora.
           <Route path="/customers" element={<CustomersPage />} />
-          <Route path="/customers/:id" element={<CustomerDetailPage />} />
+          <Route path="/customers/:id" element={<CustomerDetailPage />} /> */}
           <Route path="/reports" element={<ReportsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
         </Route>
