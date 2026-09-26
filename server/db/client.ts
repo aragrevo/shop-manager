@@ -1,8 +1,9 @@
-import { createClient, type Client } from "@libsql/client";
+import { createClient } from "@libsql/client";
 import { drizzle, type LibSQLDatabase } from "drizzle-orm/libsql";
 import * as schema from "./schema";
 
 export type Database = LibSQLDatabase<typeof schema>;
+export type LibsqlClient = ReturnType<typeof createClient>;
 
 function requiredEnv(name: string): string {
   const value = process.env[name];
@@ -12,13 +13,13 @@ function requiredEnv(name: string): string {
   return value;
 }
 
-let client: Client | undefined;
+let client: LibsqlClient | undefined;
 let db: Database | undefined;
 
 /**
  * Single shared libSQL client. Never instantiate libSQL clients elsewhere.
  */
-export function getClient(): Client {
+export function getClient(): LibsqlClient {
   if (!client) {
     client = createClient({
       url: requiredEnv("DATABASE_URL"),
