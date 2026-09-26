@@ -210,7 +210,7 @@ export function DashboardPage() {
         </CardContent>
       </Card>
 
-      {/* <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Card>
           <CardHeader title="Ventas recientes" />
           {data.recentSales.length === 0 ? (
@@ -266,7 +266,7 @@ export function DashboardPage() {
             </Table>
           )}
         </Card>
-      </div> */}
+      </div>
     </div>
   );
 }
