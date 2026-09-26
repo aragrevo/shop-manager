@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { loadEnv, type Plugin, type ViteDevServer } from "vite";
@@ -23,50 +23,34 @@ function readBody(req: IncomingMessage): Promise<unknown> {
   });
 }
 
-function resolveApiFile(root: string, apiPath: string, query: Record<string, string>) {
-  const segments = apiPath.split("/").filter(Boolean);
-  if (segments.length === 0) return null;
-
-  const direct = [
-    join(root, "api", `${apiPath}.ts`),
-    join(root, "api", apiPath, "index.ts"),
-  ];
-  const directFile = direct.find((candidate) => existsSync(candidate));
-  if (directFile) return directFile;
-
-  // dynamic route: api/<parent>/[param].ts
-  const value = segments[segments.length - 1];
-  const parent = segments.slice(0, -1).join("/");
-  const parentDir = join(root, "api", parent);
-  if (!value || !existsSync(parentDir)) return null;
-
-  const dynamic = readdirSync(parentDir).find((name) => /^\[.+\]\.ts$/.test(name));
-  if (!dynamic) return null;
-  const param = dynamic.slice(1, -4); // strip [ ] .ts
-  query[param] = value;
-  return join(parentDir, dynamic);
-}
-
 async function runApi(
   server: ViteDevServer,
   req: IncomingMessage,
   res: ServerResponse,
 ): Promise<boolean> {
-  const root = server.config.root;
-  const url = new URL(req.url ?? "/", "http://localhost");
-  const apiPath = url.pathname.replace(/^\/api\/?/, "").replace(/\/$/, "");
+  // Same single catch-all function Vercel deploys, for dev/prod parity.
+  const file = join(server.config.root, "api", "[...path].ts");
+  if (!existsSync(file)) return false;
 
-  const query: Record<string, string> = {};
+  const url = new URL(req.url ?? "/", "http://localhost");
+  const segments = url.pathname
+    .replace(/^\/api\/?/, "")
+    .replace(/\/$/, "")
+    .split("/")
+    .filter(Boolean);
+
+  const query: Record<string, string | string[]> = {};
   url.searchParams.forEach((value, key) => {
     query[key] = value;
   });
-
-  const file = resolveApiFile(root, apiPath, query);
-  if (!file) return false;
+  query.path = segments;
 
   const body = await readBody(req);
 
-  const vreq = req as IncomingMessage & { query: Record<string, string>; body: unknown };
+  const vreq = req as IncomingMessage & {
+    query: Record<string, string | string[]>;
+    body: unknown;
+  };
   vreq.query = query;
   vreq.body = body;
 
@@ -101,9 +85,9 @@ async function runApi(
 }
 
 /**
- * Dev-only: serves the `api/` serverless handlers under /api during `pnpm dev`,
- * so the app is fully functional locally without the Vercel CLI.
- * In production Vercel runs `api/` natively; this plugin is dev-only.
+ * Dev-only: serves the `api/[...path].ts` serverless handler under /api during
+ * `pnpm dev`, so the app is fully functional locally without the Vercel CLI.
+ * In production Vercel runs the same function natively; this plugin is dev-only.
  */
 export function apiDevPlugin(): Plugin {
   return {
