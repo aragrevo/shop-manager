@@ -25,6 +25,7 @@
   },
   "include": [
     "vite.config.ts",
+    "vite-api-plugin.ts",
     "vitest.config.ts",
     "drizzle.config.ts",
     "tailwind.config.ts",

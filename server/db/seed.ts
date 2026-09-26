@@ -1,4 +1,5 @@
 import { getDb } from "./client";
+import { hashPassword } from "../auth/password";
 import {
   categories,
   customers,
@@ -71,7 +72,7 @@ async function main() {
     .values({
       email: "owner@horno.dev",
       name: "Lucía Ferrer",
-      passwordHash: "seeded-placeholder-hash-replaced-by-auth",
+      passwordHash: await hashPassword("demo1234"),
     })
     .returning();
 

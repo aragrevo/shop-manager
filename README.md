@@ -77,6 +77,19 @@ pnpm db:seed       # datos demo (15 productos, 6 categorías, 10 clientes,
 Todas las modificaciones de esquema se hacen por migraciones de Drizzle. No se
 edita la base de datos de producción a mano.
 
+## Datos demo
+
+Tras `pnpm db:seed`, hay un usuario listo para entrar:
+
+```
+Email:    owner@horno.dev
+Password: demo1234
+```
+
+Es el propietario de la tienda "Panadería El Horno" con datos demo (15
+productos, 6 categorías, 10 clientes, 20 ventas, 15 gastos y movimientos de
+inventario). Las cifras de ventas/gastos/beneficio se calculan desde esos datos.
+
 ## Despliegue en Vercel
 
 1. Importa el repositorio en Vercel.
